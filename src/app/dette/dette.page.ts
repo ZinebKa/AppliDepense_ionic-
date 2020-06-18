@@ -1,29 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { DettePage } from '../dette/dette.page';
 import { AjouterPage } from '../ajouter/ajouter.page';
+import { AccueilPage } from '../accueil/accueil.page';
 import { StatistiquePage } from '../statistique/statistique.page';
 import { PlusPage } from '../plus/plus.page';
-import { Depense } from '../data/depense';
 import {HttpClient} from '@angular/common/http';
 
 
+
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.page.html',
-  styleUrls: ['./accueil.page.scss'],
+  selector: 'app-dette',
+  templateUrl: './dette.page.html',
+  styleUrls: ['./dette.page.scss'],
 })
-export class AccueilPage {
-  depenses;
+export class DettePage  {
+  dettes;
 
   constructor(public http: HttpClient) {
-    this.readAPI('http://localhost:8084/api/depenses')
+    this.readAPI('http://localhost:8084/api/dettes')
     .subscribe((data) =>{
       console.log(data);
-      this.depenses = data;
+      this.dettes = data;
     });
        }
 
    readAPI(URL: string) {
      return this.http.get(URL);
    }
+
 }

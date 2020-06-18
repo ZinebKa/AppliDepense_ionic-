@@ -15,6 +15,22 @@ const routes: Routes = [
     path: 'accueil',
     loadChildren: () => import('./accueil/accueil.module').then( m => m.AccueilPageModule)
   },
+  {
+    path: 'dette',
+    loadChildren: () => import('./dette/dette.module').then( m => m.DettePageModule)
+  },
+  {
+    path: 'ajouter',
+    loadChildren: () => import('./ajouter/ajouter.module').then( m => m.AjouterPageModule)
+  },
+  {
+    path: 'statistique',
+    loadChildren: () => import('./statistique/statistique.module').then( m => m.StatistiquePageModule)
+  },
+  {
+    path: 'plus',
+    loadChildren: () => import('./plus/plus.module').then( m => m.PlusPageModule)
+  },
 ];
 
 @NgModule({
