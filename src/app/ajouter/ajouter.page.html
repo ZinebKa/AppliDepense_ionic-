@@ -5,7 +5,30 @@
 </ion-header>
 
 <ion-content>
-  
+  <ion-item>
+    <ion-label>Libelle</ion-label>
+    <ion-input [(ngModel)]="data.libele" placeholder="Entrez un libellé"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Montant</ion-label>
+    <ion-input [(ngModel)]="data.montant" placeholder="Entrez le montant"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-input [(ngModel)]="data.date" placeholder="Date jj/mm/aaaa"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Note</ion-label>
+    <ion-input [(ngModel)]="data.note" placeholder="Ajoutez une note"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="submitForm()" [routerLink]="['/accueil']">Ajouter
+    </ion-button>
+  </ion-item>
+
   <ion-tabs>
     <ion-tab-bar slot="bottom">
       <ion-tab-button tab="schedule" routerLink="/accueil">

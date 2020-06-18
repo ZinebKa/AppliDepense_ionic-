@@ -1,6 +1,7 @@
 export class Depense{
-    nom : string;
-    catégorie : string;
-    date : string; // Je dois la changer en Date
+    id : number;
+    libele : string;
+    note : string;
+    date : string; // temporairement
     montant: number;
 }
