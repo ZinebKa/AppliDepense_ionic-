@@ -7,19 +7,19 @@
 
     <ion-item >
       <ion-label color="light">Email</ion-label>
-      <ion-input color="light" type="mail" placeholder="Adresse email"></ion-input>
+      <ion-input color="light" type="mail" placeholder="Adresse email" [(ngModel)]="email" ></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="light">Mot de passe</ion-label>
-      <ion-input color="light" type="password" placeholder="Mot de passe" ></ion-input>
+      <ion-input color="light" type="password" placeholder="Mot de passe" [(ngModel)]="mdp" ></ion-input>
     </ion-item>
 
     <ion-item lines="none">
       <ion-button color="light" slot="end" fill="clear">Mot de passe oublié ?</ion-button>
     </ion-item>
 
-    <ion-button color="light" expand="block" shape="round" fill="outline" routerLink="/accueil">Connexion</ion-button>
+    <ion-button color="light" expand="block" shape="round" fill="outline" (click)="login()">Connexion</ion-button>
     <br>
     <!--<ion-button color="light" expand="block" shape="round">Inscription</ion-button>-->
 
