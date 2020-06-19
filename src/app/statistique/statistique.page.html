@@ -1,37 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>statistique</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  
+    <ion-title>Statistique</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="schedule" routerLink="/accueil">
-        <ion-icon name="cash-outline"></ion-icon>
-        <ion-label>Compte</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="speakers" routerLink="/dette">
-        <ion-icon name="hourglass-outline"></ion-icon>
-        <ion-label>Dettes</ion-label>
-      </ion-tab-button>
+  <ion-footer class="ion-no-border">
+    <ion-toolbar>  
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="schedule" routerLink="/accueil">
+          <ion-icon name="cash-outline"></ion-icon>
+          <ion-label>Compte</ion-label>
+        </ion-tab-button>
+          
+        <ion-tab-button tab="map" routerLink="/ajouter">
+          <ion-icon name="add"></ion-icon>
+          <ion-label>Dépense</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="speakers" routerLink="/dette">
+          <ion-icon name="hourglass-outline"></ion-icon>
+          <ion-label>A rendre</ion-label>
+        </ion-tab-button>
 
-      <ion-tab-button tab="map" routerLink="/ajouter">
-        <ion-icon name="add"></ion-icon>
-        <ion-label>Ajouter</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="map" routerLink="/statistique">
-        <ion-icon name="analytics"></ion-icon>
-        <ion-label>Statistiques</ion-label>
-      </ion-tab-button>
+        <ion-tab-button tab="about" routerLink="/plus">
+          <ion-icon name="add"></ion-icon>
+          <ion-label>Dette</ion-label>
+        </ion-tab-button>
   
-      <ion-tab-button tab="about" routerLink="/plus">
-        <ion-icon name="ellipsis-horizontal-circle"></ion-icon>
-        <ion-label>Plus</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-content>
+        <ion-tab-button tab="map" routerLink="/statistique">
+          <ion-icon name="analytics"></ion-icon>
+          <ion-label>Statistiques</ion-label>
+        </ion-tab-button>
+    
+      </ion-tab-bar>
+    </ion-tabs>
+    </ion-toolbar>
+    </ion-footer>
+
+
+

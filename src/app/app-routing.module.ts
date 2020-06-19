@@ -30,7 +30,15 @@ const routes: Routes = [
   {
     path: 'plus',
     loadChildren: () => import('./plus/plus.module').then( m => m.PlusPageModule)
+  },  {
+    path: 'depense-edit',
+    loadChildren: () => import('./depense-edit/depense-edit.module').then( m => m.DepenseEditPageModule)
   },
+  {
+    path: 'dette-edit',
+    loadChildren: () => import('./dette-edit/dette-edit.module').then( m => m.DetteEditPageModule)
+  },
+
 ];
 
 @NgModule({
