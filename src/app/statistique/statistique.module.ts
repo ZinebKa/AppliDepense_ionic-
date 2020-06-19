@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { StatistiquePageRoutingModule } from './statistique-routing.module';
 
 import { StatistiquePage } from './statistique.page';
+import {Ng2GoogleChartsModule} from 'ng2-google-charts';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    StatistiquePageRoutingModule
+    StatistiquePageRoutingModule,
+    Ng2GoogleChartsModule
   ],
   declarations: [StatistiquePage]
 })
