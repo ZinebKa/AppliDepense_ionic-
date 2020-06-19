@@ -5,12 +5,14 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators'; 
 import { environment } from '../../environments/environment';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  base_path = environment.API_URL+"api/depense";
+  base_path_depense = environment.API_URL+"api/depense";
+
 
 
   constructor( private http: HttpClient) { }
@@ -42,7 +44,7 @@ export class ApiService {
     // l'ajout d'une nouvelle dépense
     createItem(item): Observable<Depense> {
       return this.http
-        .post<Depense>(this.base_path+"/add", JSON.stringify(item), this.httpOptions)
+        .post<Depense>(this.base_path_depense+"/add", JSON.stringify(item), this.httpOptions)
         .pipe(
           retry(0),
           catchError(this.handleError)
@@ -52,7 +54,7 @@ export class ApiService {
     // Récupération par l'id
   getItem(id): Observable<Depense> {
     return this.http
-      .get<Depense>(this.base_path + '/' + id)
+      .get<Depense>(this.base_path_depense + '/' + id)
       .pipe(
         retry(0),
         catchError(this.handleError)
@@ -62,31 +64,30 @@ export class ApiService {
   // Récupération de toutes les dépenses
   getList(): Observable<Depense> {
     return this.http
-      .get<Depense>(this.base_path)
+      .get<Depense>(this.base_path_depense)
       .pipe(
         retry(0),
         catchError(this.handleError)
       )
   }
   
-  // Modification 
+  // Modification d'une dépense
   updateItem(id, item): Observable<Depense> {
     return this.http
-      .put<Depense>(this.base_path + '/' + id, JSON.stringify(item), this.httpOptions)
+      .put<Depense>(this.base_path_depense + '/' + id, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)
       )
   }
 
-  // Delete item
+  // Supprimer depense
   deleteItem(id) {
     return this.http
-      .delete<Depense>(this.base_path + '/' + id, this.httpOptions)
+      .delete<Depense>(this.base_path_depense+ '/' + id, this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)
       )
   }
-
 }

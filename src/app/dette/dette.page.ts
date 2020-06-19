@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AjouterPage } from '../ajouter/ajouter.page';
-import { AccueilPage } from '../accueil/accueil.page';
-import { StatistiquePage } from '../statistique/statistique.page';
-import { PlusPage } from '../plus/plus.page';
-import {HttpClient} from '@angular/common/http';
+import { DetteService } from '../services/dette.service';
+import { Router } from '@angular/router';
 
 
 
@@ -12,10 +9,44 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: './dette.page.html',
   styleUrls: ['./dette.page.scss'],
 })
-export class DettePage  {
-  dettes;
+export class DettePage implements OnInit {
+  dettes :any;
 
-  constructor(public http: HttpClient) {
+  constructor(
+    public detteService: DetteService,
+    public router: Router
+  ) {
+    this.dettes = [];
+  }
+
+  ngOnInit() {
+    this.getAllDettes();
+  }
+
+  ionViewWillEnter() {
+    this.getAllDettes();
+  }
+
+  getAllDettes() {
+    this.detteService.getList().subscribe(response => {
+      console.log(response);
+      this.dettes = response;
+    })
+  }
+
+
+  deleteDette(dette) {
+    this.detteService.deleteItem(dette.id).subscribe(Response => {
+      this.getAllDettes();
+    });
+  }
+
+
+modifierD(id) {
+  this.router.navigate(['dette-edit',{id:id}])
+}
+}
+ /* constructor(public http: HttpClient) {
     this.readAPI('http://localhost:8084/api/dettes')
     .subscribe((data) =>{
       console.log(data);
@@ -26,5 +57,5 @@ export class DettePage  {
    readAPI(URL: string) {
      return this.http.get(URL);
    }
+*/
 
-}

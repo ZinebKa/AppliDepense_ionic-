@@ -8,22 +8,11 @@
 </ion-header>
 
 <ion-content>
-
- <ion-card>
-  <ion-card-header>
-    <ion-card-title> Mon compte</ion-card-title>
-    <ion-card-subtitle>20/04/2020</ion-card-subtitle>
-  </ion-card-header>
-  <ion-card-content> 1.000.000 Dhs</ion-card-content>
-</ion-card>
-
-  
-    
   <ion-card *ngFor="let depense of depenses;">
       <h1>{{depense.libele}}: {{depense.montant}} </h1>
       <H2>    {{depense.date}}  </H2>
      <ion-buttons style="display: flex">
-          <ion-button size="small" routerLink='/depense-edit/{{depense.id}}'>
+          <ion-button size="small" (click)="modifier(depense.id)">
             <ion-icon name="create"></ion-icon>
           </ion-button>
           <ion-button size="small" (click)="delete(depense)">
@@ -31,34 +20,40 @@
           </ion-button>
      </ion-buttons> 
   </ion-card>
+</ion-content>  
+  <ion-footer class="ion-no-border">
+    <ion-toolbar>  
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="schedule" routerLink="/accueil">
+          <ion-icon name="cash-outline"></ion-icon>
+          <ion-label>Compte</ion-label>
+        </ion-tab-button>
+          
+        <ion-tab-button tab="map" routerLink="/ajouter">
+          <ion-icon name="add"></ion-icon>
+          <ion-label>Dépense</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="speakers" routerLink="/dette">
+          <ion-icon name="hourglass-outline"></ion-icon>
+          <ion-label>A rendre</ion-label>
+        </ion-tab-button>
 
-
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="schedule" routerLink="/accueil">
-        <ion-icon name="cash-outline"></ion-icon>
-        <ion-label>Compte</ion-label>
-      </ion-tab-button>
+        <ion-tab-button tab="about" routerLink="/plus">
+          <ion-icon name="add"></ion-icon>
+          <ion-label>Dette</ion-label>
+        </ion-tab-button>
   
-      <ion-tab-button tab="speakers" routerLink="/dette">
-        <ion-icon name="hourglass-outline"></ion-icon>
-        <ion-label>Dettes</ion-label>
-      </ion-tab-button>
+        <ion-tab-button tab="map" routerLink="/statistique">
+          <ion-icon name="analytics"></ion-icon>
+          <ion-label>Statistiques</ion-label>
+        </ion-tab-button>
+    
+      </ion-tab-bar>
+    </ion-tabs>
+    </ion-toolbar>
+    </ion-footer>
 
-      <ion-tab-button tab="map" routerLink="/ajouter">
-        <ion-icon name="add"></ion-icon>
-        <ion-label>Ajouter</ion-label>
-      </ion-tab-button>
 
-      <ion-tab-button tab="map" routerLink="/statistique">
-        <ion-icon name="analytics"></ion-icon>
-        <ion-label>Statistiques</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="about" routerLink="/plus">
-        <ion-icon name="ellipsis-horizontal-circle"></ion-icon>
-        <ion-label>Plus</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-content>
+

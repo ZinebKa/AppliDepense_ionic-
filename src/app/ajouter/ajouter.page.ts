@@ -25,7 +25,7 @@ export class AjouterPage implements OnInit {
   }
   submitForm() {
     this.apiService.createItem(this.data).subscribe((response) => {
-     // this.router.navigate(['accueil']);
+     // this.router.navigate(['/accueil']);
     });
 
   }

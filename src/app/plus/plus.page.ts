@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DettePage } from '../dette/dette.page';
-import { AjouterPage } from '../ajouter/ajouter.page';
-import { StatistiquePage } from '../statistique/statistique.page';
-import { AccueilPage } from '../accueil/accueil.page';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Dette} from '../data/dette';
+import { DetteService } from '../services/dette.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plus',
@@ -13,14 +10,21 @@ import { Observable } from 'rxjs';
 })
 export class PlusPage implements OnInit {
 
-  api:string = "http://localhost:8084/api/depense/add";
+  dataDette : Dette;
 
-  constructor(public http: HttpClient) {
-    //console.log(this.addDepense());
-   
+  constructor(
+    public detteService: DetteService,
+    public router: Router
+    ) { this.dataDette = new Dette();
    }
 
   ngOnInit() {
+  }
+  submitFormDette() {
+    this.detteService.createItem(this.dataDette).subscribe((response) => {
+     // this.router.navigate(['dette']);
+    });
+
   }
 
  /* addDepense() : Observable <any> {

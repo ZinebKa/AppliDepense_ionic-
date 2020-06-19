@@ -10,6 +10,7 @@ import { ApiService } from '../services/api.service';
 })
 export class DepenseEditPage implements OnInit {
 
+  getData: any;
   id: number;
   data: Depense;
 
@@ -22,6 +23,7 @@ export class DepenseEditPage implements OnInit {
   }
 
   ngOnInit() {
+    //this.getData = this.activatedRoute.snapshot.paramMap.get("depense");
     this.id = this.activatedRoute.snapshot.params["id"];
     this.apiService.getItem(this.id).subscribe(response => {
       console.log(response);
